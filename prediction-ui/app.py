@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pandas as pd
 from flask import Flask, request, render_template, jsonify
+import requests
 
-from diabetes_predictor import DiabetesPredictor
 from werkzeug.utils import secure_filename
 
 # Flask constructor
@@ -37,7 +37,7 @@ def check_diabetes():
             print(res.status_code)
             result = res.json()
             return result
-            
+
     return render_template(
         "user_form.html")  # this method is called of HTTP method is GET, e.g., when browsing the link
 
