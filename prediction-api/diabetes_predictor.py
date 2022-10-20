@@ -13,9 +13,13 @@ class DiabetesPredictor:
 
     # download the model
     def download_model(self):
+        print("Lets try to download model")
         project_id = os.environ.get('PROJECT_ID', 'Specified environment variable is not set.')
+        print('projectid is', project_id)
         model_repo = os.environ.get('MODEL_REPO', 'Specified environment variable is not set.')
+        print("model_repo is:", model_repo)
         model_name = os.environ.get('MODEL_NAME', 'Specified environment variable is not set.')
+        print("model name is:", model_name)
         client = storage.Client(project=project_id)
         bucket = client.get_bucket(model_repo)
         blob = bucket.blob(model_name)
