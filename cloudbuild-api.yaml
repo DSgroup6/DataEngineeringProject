@@ -36,9 +36,7 @@ steps:
   - managed
   - "--allow-unauthenticated"
   - "--update-env-vars"
-  - PROJECT_ID=$PROJECT_ID
-  - MODEL_REPO=model_repo_de2022_group6
-  - MODEL_NAME=model.h5
+  - PROJECT_ID=$PROJECT_ID,MODEL_REPO=model_repo_de2022_group6,MODEL_NAME=model.h5
   - "--no-cpu-throttling"
   - "--memory"
   - 4 Gi
