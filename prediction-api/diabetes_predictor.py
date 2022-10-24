@@ -1,11 +1,13 @@
 import json
 import os
+from tkinter import Image
 
 import pandas as pd
 from flask import jsonify
 from google.cloud import storage
 from keras.models import load_model
-
+from PIL import Image
+from numpy import asarray
 
 class DiabetesPredictor:
     def __init__(self):
@@ -27,16 +29,21 @@ class DiabetesPredictor:
         self.model = load_model('local_model.h5')
         return jsonify({'message': " the model was downloaded"}), 200
 
-    def predict_single_record(self, prediction_input):
-        print(prediction_input)
+    def predict_single_record(self, file_path):
+        print(file_path)
         if self.model is None:
             self.download_model()
-        print(json.dumps(prediction_input))
-        df = pd.read_json(json.dumps(prediction_input), orient='records')
-        print(df)
-        y_pred = self.model.predict(df)
-        print(y_pred[0])
-        status = (y_pred[0] > 0.5)
-        print(type(status[0]))
+
+        img = Image.open(file_path)
+        img = img.convert("L")
+        img_arr = asarray(img)
+        img_arr = img_arr.flatten()
+
+        # df = pd.read_json(json.dumps(prediction_input), orient='records')
+        print('image data is:', img_arr)
+        y_pred = self.model.predict(img_arr)
+
+        # status = (y_pred[0] > 0.5)
+
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
-        return jsonify({'result': str(status[0])}), 200
+        return jsonify({'result': str(y_pred[0])}), 200
