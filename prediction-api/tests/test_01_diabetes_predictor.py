@@ -12,6 +12,7 @@ class TestDiabetesPredictor:
     @pytest.fixture(scope="session", autouse=True)
     def execute_before_any_test(self):
         os.environ["MODEL_NAME"] = "testResources/model.h5"
+        os.environ["PROJECT_ID"] = "datatengineering-group6"
 
     # your setup code goes here, executed ahead of first test
     def test_predict_single_record(self):
