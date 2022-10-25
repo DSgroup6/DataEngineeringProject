@@ -42,10 +42,10 @@ def check_diabetes():
                 res = requests.post(predictor_api_url, files= request.files)
                 print(res.status_code)
 
-                app.logger.info(res)
+                app.logger.info(str(res))
                 status = res.json()
                 
-                app.logger.info(status)
+                app.logger.info(str(status))
                 # clean up - remove the downloaded file
                 try:
                     os.remove(file_path)
