@@ -8,5 +8,4 @@ six
 pathlib
 werkzeug
 
-pillow
 google-cloud-storage
