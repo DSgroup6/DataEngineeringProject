@@ -11,7 +11,8 @@ COPY . .
 # Expose the port that our app runs in
 EXPOSE 5000
 
-# Enviroment Variables
+# Enviroment Variables  - "--update-env-vars"
+ENV PREDICTOR_API=http://predictor-api-server:5000/guessjapanesecharacter
 #Add some meta data if necessary
 LABEL diabetes.predictor.api="0.0.1-beta"
 

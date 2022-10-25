@@ -23,7 +23,7 @@ steps:
   - "--platform"
   - managed
   - "--update-env-vars"
-  - "PREDICTOR_API=http://predictor-api-server:5000/guessjapanesecharacter"
+  - "PREDICTOR_API=https://prediction-service-api-dplpyykkva-uc.a.run.app/guessjapanesecharacter"
   - "--allow-unauthenticated"
   - "--no-cpu-throttling"
   - "--memory"
