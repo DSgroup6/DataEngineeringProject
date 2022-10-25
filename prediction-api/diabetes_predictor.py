@@ -42,7 +42,7 @@ class DiabetesPredictor:
         
         # df = pd.read_json(json.dumps(prediction_input), orient='records')
         print('image data is:', img_arr)
-        y_pred = self.model.predict(img_arr)
+        y_pred = self.model.predict(img_arr.reshape(-1,1))
 
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
         return jsonify({'result': str(y_pred[0])}), 200
