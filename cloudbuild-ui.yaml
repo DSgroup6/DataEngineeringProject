@@ -1,12 +1,12 @@
 ---
 steps:
-- name: python
-  entrypoint: "/bin/sh"
-  args:
-  - "-c"
-  - cd ./prediction-ui && python -m venv .myenv && . .myenv/bin/activate
-    && pip install -r requirements_dev.txt
-  - "--user"
+# - name: python
+#   entrypoint: "/bin/sh"
+#   args:
+#   - "-c"
+#   - cd ./prediction-ui && python -m venv .myenv && . .myenv/bin/activate
+#     && pip install -r requirements_dev.txt
+#   - "--user"
 - name: gcr.io/cloud-builders/docker
   args:
   - build

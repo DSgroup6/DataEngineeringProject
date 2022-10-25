@@ -5,13 +5,13 @@ steps:
   - cp
   - gs://model_repo_de2022_group6/model.h5
   - "./prediction-api"
-- name: python
-  entrypoint: "/bin/sh"
-  args:
-  - "-c"
-  - cd ./prediction-api && python -m venv .myenv && . .myenv/bin/activate
-    && pip install -r requirements_dev.txt
-  - "--user"
+# - name: python
+#   entrypoint: "/bin/sh"
+#   args:
+#   - "-c"
+#   - cd ./prediction-api && python -m venv .myenv && . .myenv/bin/activate
+#     && pip install -r requirements_dev.txt
+#   - "--user"
 - name: gcr.io/cloud-builders/docker
   args:
   - build
