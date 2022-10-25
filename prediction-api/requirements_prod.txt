@@ -5,5 +5,5 @@ six
 pathlib
 werkzeug
 pillow
-pickle
+joblib
 google-cloud-storage
