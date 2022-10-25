@@ -30,7 +30,6 @@ steps:
   - "--platform"
   - managed
   - "--allow-unauthenticated"
-  - "--update-env-vars"
   - "--no-cpu-throttling"
   - "--memory"
   - 4 Gi
