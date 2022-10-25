@@ -3,7 +3,7 @@ import os
 import pandas as pd
 from flask import jsonify
 from google.cloud import storage
-from keras.models import load_model
+# from keras.models import load_model
 from PIL import Image
 from numpy import asarray
 

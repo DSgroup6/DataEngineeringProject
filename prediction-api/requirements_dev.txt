@@ -6,4 +6,6 @@ werkzeug
 tensorflow
 numpy
 six
+pickle
 google-cloud-storage
+h5py
