@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir -r requirements_prod.txt
 COPY . .
 # Expose the port that our app runs in
 EXPOSE 5000
-EXPOSE 8080
+# EXPOSE 8080
 
 # Enviroment Variables
 ENV PREDICTOR_API=http://predictor-api-server:5000/diabetes_predictor
