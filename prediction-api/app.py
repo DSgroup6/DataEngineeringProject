@@ -38,7 +38,7 @@ def predict_str():
         file.save(file_path)
 
         try:
-            app.logger.info(str(os.stat()))
+            app.logger.info(str(os.stat(file_path)))
             return dp.predict_single_record(file_path)
         finally:
             try:
