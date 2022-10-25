@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  prediction-ui:
+    build: ./prediction-ui
+    image: prediction-ui:latest
+    ports: 
+      - "5003:5000"
+  prediction-api:
+    build: ./prediction-api
+    image: prediction-api:latest
+    ports: 
+      - "5000:5000"

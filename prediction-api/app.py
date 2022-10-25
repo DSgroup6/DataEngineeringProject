@@ -3,7 +3,7 @@ import os
 from flask import Flask, request
 from pathlib import Path
 from diabetes_predictor import DiabetesPredictor
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)

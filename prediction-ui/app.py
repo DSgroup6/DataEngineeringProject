@@ -36,7 +36,7 @@ def check_diabetes():
             file_path = os.path.join(soda_home, filename)
             file.save(file_path)
             # make predictions
-            df = pd.read_json(file_path)
+            # df = pd.read_json(file_path)
 
             predictor_api_url = os.environ['PREDICTOR_API']
             #TODO: find out how to do fileupload

@@ -1,6 +1,4 @@
-import json
 import os
-from tkinter import Image
 
 import pandas as pd
 from flask import jsonify
