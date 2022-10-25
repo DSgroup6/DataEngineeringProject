@@ -38,12 +38,14 @@ def check_diabetes():
             #TODO: find out how to do fileupload
             
             try:
-                res = requests.post(predictor_api_url, files= request.files) #, json=json.loads(json.dumps(df))
+                app.logger.info("Trying to send a request to server" + predictor_api_url)
+                res = requests.post(predictor_api_url, files= request.files)
                 print(res.status_code)
 
-
+                app.logger.info(res)
                 status = res.json()
                 
+                app.logger.info(status)
                 # clean up - remove the downloaded file
                 try:
                     os.remove(file_path)
