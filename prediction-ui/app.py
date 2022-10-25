@@ -39,7 +39,9 @@ def check_diabetes():
             
             try:
                 app.logger.info("Trying to send a request to server" + predictor_api_url)
-                res = requests.post(predictor_api_url, files= request.files)
+
+                files = {'pfile': open(file_path, 'rb')}
+                res = requests.post(predictor_api_url, files= files)
                 print(res.status_code)
 
                 app.logger.info(str(res))
