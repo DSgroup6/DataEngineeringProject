@@ -35,7 +35,7 @@ class DiabetesPredictor:
         img = Image.open(file_path)
         img = img.convert("L")
         img_arr = asarray(img)
-        img_arr = img_arr.flatten()
+        # img_arr = img_arr.flatten()
 
         # df = pd.read_json(json.dumps(prediction_input), orient='records')
         print('image data is:', img_arr)
