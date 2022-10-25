@@ -55,7 +55,7 @@ def check_diabetes():
                 except Exception as error:
                     app.logger.error("Error removing or closing downloaded file handle", error)
 
-                return jsonify({'result': str(status[0])}), 200
+                return jsonify({'result': status['result']}), 200
             except Exception as err:
                 app.logger.error("Error while contacting the api server",err)
 
