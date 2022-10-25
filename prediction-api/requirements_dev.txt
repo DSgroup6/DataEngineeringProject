@@ -1,11 +1,11 @@
 flask
 pandas
 keras
+pillow
+werkzeug
 tensorflow
 numpy
 h5py
 six
 google-cloud-storage
 pytest
-Pillow
-Werkzeug

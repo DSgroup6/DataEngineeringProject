@@ -1,10 +1,10 @@
 flask
 pandas
+numpy
+pillow
+werkzeug
 keras
 tensorflow
-numpy
 h5py
 six
 google-cloud-storage
-Pillow
-Werkzeug
