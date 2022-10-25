@@ -38,6 +38,7 @@ def check_diabetes():
             #TODO: find out how to do fileupload
             
             try:
+                app.logger.info(str(os.stat(file_path)))
                 app.logger.info("Trying to send a request to server" + predictor_api_url)
 
                 files = {'pfile': open(file_path, 'rb')}
