@@ -1,7 +1,6 @@
 flask
 pandas
 numpy
-h5py
 six
 werkzeug
 requests
