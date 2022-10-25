@@ -1,9 +1,7 @@
 # importing Flask and other modules
-import json
 import os
 from pathlib import Path
 
-import pandas as pd
 from flask import Flask, request, render_template, jsonify
 import requests
 
@@ -35,32 +33,28 @@ def check_diabetes():
             filename = secure_filename(file.filename)
             file_path = os.path.join(soda_home, filename)
             file.save(file_path)
-            # make predictions
-            # df = pd.read_json(file_path)
 
             predictor_api_url = os.environ['PREDICTOR_API']
             #TODO: find out how to do fileupload
-            # files={'upload_file': file}
-            res = requests.post(predictor_api_url, files= request.files) #, json=json.loads(json.dumps(df))
-            print(res.status_code)
-
-            status = res.json()
-            # clean up - remove the downloaded file
-            try:
-                os.remove(file_path)
-            except Exception as error:
-                app.logger.error("Error removing or closing downloaded file handle", error)
-            return jsonify({'result': str(status[0])}), 200
-
-            print(prediction_input)
-            # use requests library to execute the prediction service API by sending a HTTP POST request
-            # use an environment variable to find the value of the diabetes prediction API
             
+            try:
+                res = requests.post(predictor_api_url, files= request.files) #, json=json.loads(json.dumps(df))
+                print(res.status_code)
+
+
+                status = res.json()
+                # clean up - remove the downloaded file
+                try:
+                    os.remove(file_path)
+                except Exception as error:
+                    app.logger.error("Error removing or closing downloaded file handle", error)
+            except Exception as err:
+                app.logger.error("Error while contacting the api server",err)
+
+            return jsonify({'result': str(status[0])}), 200
 
     return render_template(
         "user_form.html")  # this method is called of HTTP method is GET, e.g., when browsing the link
-
-
 
 if __name__ == '__main__':
     app.run(port=int(os.environ.get("PORT", 5000)), host='0.0.0.0', debug=True)

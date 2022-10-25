@@ -5,7 +5,7 @@ services:
     image: prediction-ui:latest
     ports: 
       - "5003:5000"
-  prediction-api:
+  predictor-api-server:
     build: ./prediction-api
     image: prediction-api:latest
     ports: 
