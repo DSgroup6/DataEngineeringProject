@@ -27,7 +27,8 @@ def predict_str():
         return jsonify({'message': 'No file part in the request'}, sort_keys=False, indent=4), 400
 
     file = request.files['pfile']
-
+    app.logger.info('the filename is: '+ file.filename)
+    
     if file.filename == '':
         return jsonify({'message': 'No file selected for uploading'}, sort_keys=False, indent=4), 400
     else:
