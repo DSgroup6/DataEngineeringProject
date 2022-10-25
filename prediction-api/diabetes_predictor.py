@@ -6,7 +6,7 @@ from google.cloud import storage
 # from keras.models import load_model
 from PIL import Image
 from numpy import asarray
-
+import pickle
 class DiabetesPredictor:
     def __init__(self):
         self.model = None
@@ -24,7 +24,7 @@ class DiabetesPredictor:
         bucket = client.get_bucket(model_repo)
         blob = bucket.blob(model_name)
         blob.download_to_filename('local_model.pkl')
-        self.model = load_model('local_model.pkl')
+        self.model = pickle.load('local_model.pkl')
         return jsonify({'message': " the model was downloaded"}), 200
 
     def predict_single_record(self, file_path):
