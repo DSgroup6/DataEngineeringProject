@@ -18,7 +18,6 @@ def refresh_model():
 @app.route('/guessjapanesecharacter', methods=['POST'])  # path of the endpoint. Except only HTTP POST request
 def predict_str():
     # the prediction input data in the message body as a JSON payload
-    # prediction_inout = request.get_json()
     home = str(Path.home())
     soda_home = os.path.join(home, ".service")
     if not os.path.exists(soda_home):
@@ -44,14 +43,6 @@ def predict_str():
                 os.remove(file_path)
             except Exception as error:
                 app.logger.error("Error removing or closing downloaded file handle", error)
-
-
-    # image = request.files['uploaded_file']
-
-
-
-    
-
 
 dp = DiabetesPredictor()
 app.run(port=int(os.environ.get("PORT", 5000)), host='0.0.0.0', debug=True)

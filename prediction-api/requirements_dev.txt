@@ -4,6 +4,6 @@ pillow
 werkzeug
 numpy
 six
+sklearn
 joblib
 google-cloud-storage
-h5py
