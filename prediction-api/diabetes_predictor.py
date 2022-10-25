@@ -7,6 +7,7 @@ from google.cloud import storage
 from PIL import Image
 from numpy import asarray
 import joblib
+import numpy as np
 class DiabetesPredictor:
     def __init__(self):
         self.model = None
@@ -35,8 +36,9 @@ class DiabetesPredictor:
         img = Image.open(file_path)
         img = img.convert("L")
         img_arr = asarray(img)
-        # img_arr = img_arr.flatten()
-
+        img_arr = np.concatenate([0],img_arr.flatten()) 
+        img_arr = np.divide(img_arr, 255)
+        img_arr = np.subtract(255, img_arr)
         # df = pd.read_json(json.dumps(prediction_input), orient='records')
         print('image data is:', img_arr)
         y_pred = self.model.predict(img_arr)
