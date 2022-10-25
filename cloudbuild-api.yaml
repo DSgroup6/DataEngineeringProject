@@ -3,15 +3,8 @@ steps:
 - name: gcr.io/cloud-builders/gsutil
   args:
   - cp
-  - gs://model_repo_de2022_group6/model.h5
+  - gs://model_repo_de2022_group6/model.pkl
   - "./prediction-api"
-# - name: python
-#   entrypoint: "/bin/sh"
-#   args:
-#   - "-c"
-#   - cd ./prediction-api && python -m venv .myenv && . .myenv/bin/activate
-#     && pip install -r requirements_dev.txt
-#   - "--user"
 - name: gcr.io/cloud-builders/docker
   args:
   - build
@@ -36,7 +29,7 @@ steps:
   - managed
   - "--allow-unauthenticated"
   - "--update-env-vars"
-  - PROJECT_ID=$PROJECT_ID,MODEL_REPO=model_repo_de2022_group6,MODEL_NAME=model.h5
+  - PROJECT_ID=$PROJECT_ID,MODEL_REPO=model_repo_de2022_group6,MODEL_NAME=model.pkl
   - "--no-cpu-throttling"
   - "--memory"
   - 4 Gi

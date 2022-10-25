@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 # A decorator used to tell the application
 # which URL is associated function
-@app.route('/checkdiabetes', methods=["GET", "POST"])
+@app.route('/guessjapanesecharacter', methods=["GET", "POST"])
 def check_diabetes():
     if request.method == "POST":
         # we are going to save the file locally at a folder. if the folder does not exist, we need to create it
@@ -43,15 +43,16 @@ def check_diabetes():
 
 
                 status = res.json()
+                
                 # clean up - remove the downloaded file
                 try:
                     os.remove(file_path)
                 except Exception as error:
                     app.logger.error("Error removing or closing downloaded file handle", error)
+
+                return jsonify({'result': str(status[0])}), 200
             except Exception as err:
                 app.logger.error("Error while contacting the api server",err)
-
-            return jsonify({'result': str(status[0])}), 200
 
     return render_template(
         "user_form.html")  # this method is called of HTTP method is GET, e.g., when browsing the link

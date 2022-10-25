@@ -15,7 +15,7 @@ EXPOSE 8080
 # Enviroment Variables
 ENV PROJECT_ID=datatengineering-group6
 ENV MODEL_REPO=model_repo_de2022_group6
-ENV MODEL_NAME=model.h5
+ENV MODEL_NAME=model.pkl
 # Run our App
 CMD ["python3","app.py"]
 # We can also use an ENTRYPOINT and a CMD

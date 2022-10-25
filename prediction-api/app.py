@@ -15,7 +15,7 @@ def refresh_model():
     return dp.download_model()
 
 
-@app.route('/diabetes_predictor', methods=['POST'])  # path of the endpoint. Except only HTTP POST request
+@app.route('/guessjapanesecharacter', methods=['POST'])  # path of the endpoint. Except only HTTP POST request
 def predict_str():
     # the prediction input data in the message body as a JSON payload
     # prediction_inout = request.get_json()
