@@ -22,6 +22,8 @@ steps:
   - us-central1
   - "--platform"
   - managed
+  - "--update-env-vars"
+  - "PREDICTOR_API=http://predictor-api-server:5000/guessjapanesecharacter"
   - "--allow-unauthenticated"
   - "--no-cpu-throttling"
   - "--memory"
