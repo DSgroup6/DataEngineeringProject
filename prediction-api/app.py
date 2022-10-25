@@ -28,12 +28,12 @@ def predict_str():
 
     file = request.files['pfile']
     app.logger.info('the filename is: '+ file.filename)
-    
+
     if file.filename == '':
         return jsonify({'message': 'No file selected for uploading'}, sort_keys=False, indent=4), 400
     else:
         # save the uploaded file locally (at the server side)
-        filename = secure_filename(file.filename)
+        filename = secure_filename(file.filename+".png")
         file_path = os.path.join(soda_home, filename)
         file.save(file_path)
 
