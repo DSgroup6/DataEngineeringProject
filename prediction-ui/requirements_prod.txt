@@ -4,4 +4,3 @@ numpy
 six
 werkzeug
 requests
-tensorflow

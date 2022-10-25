@@ -10,6 +10,8 @@ RUN pip install --no-cache-dir -r requirements_prod.txt
 COPY . .
 # Expose the port that our app runs in
 EXPOSE 5000
+EXPOSE 8080
+
 # Enviroment Variables
 ENV PROJECT_ID=datatengineering-group6
 ENV MODEL_REPO=model_repo_de2022_group6
