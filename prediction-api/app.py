@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, request
 from pathlib import Path
-from diabetes_predictor import DiabetesPredictor
+from japchar_predictor import JapaneseCharacterPredictor
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 
@@ -46,5 +46,5 @@ def predict_str():
             except Exception as error:
                 app.logger.error("Error removing or closing downloaded file handle", error)
 
-dp = DiabetesPredictor()
+dp = JapaneseCharacterPredictor()
 app.run(port=int(os.environ.get("PORT", 5000)), host='0.0.0.0', debug=True)
