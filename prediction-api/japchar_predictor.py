@@ -8,7 +8,7 @@ from PIL import Image
 from numpy import asarray
 import joblib
 import numpy as np
-class DiabetesPredictor:
+class JapaneseCharacterPredictor:
     def __init__(self):
         self.model = None
 
