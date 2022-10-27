@@ -6,6 +6,10 @@
         <input type="file" id="pfile" name="pfile"/>
         <input type="submit"/>
     </form>
-    <form >
+    {% if result is defined %}
+        <p>The resulting character is {{result}}</p>
+    {% else %} 
+    <p></p>
+    {% endif %} 
 </body>
 </html>
