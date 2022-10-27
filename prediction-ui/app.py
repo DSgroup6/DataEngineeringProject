@@ -35,32 +35,23 @@ def check_diabetes():
             file.save(file_path)
 
             predictor_api_url = os.environ['PREDICTOR_API']
-            #TODO: find out how to do fileupload
-            
             try:
-                # app.logger.info(str(os.stat(file_path)))
-                # app.logger.info("Trying to send a request to server" + predictor_api_url)
-
                 files = {'pfile': open(file_path, 'rb')}
                 res = requests.post(predictor_api_url, files= files)
-                # print(res.status_code)
 
-                # app.logger.info(str(res))
                 status = res.json()
-                
-                # app.logger.info(str(status))
                 # clean up - remove the downloaded file
                 try:
                     os.remove(file_path)
                 except Exception as error:
                     app.logger.error("Error removing or closing downloaded file handle", error)
 
-                return jsonify({'result': status['result']}), 200
+                return render_template("user_form.html", result=status['result'])
+                # return jsonify({'result': status['result']}), 200
             except Exception as err:
                 app.logger.error("Error while contacting the api server",err)
 
-    return render_template(
-        "user_form.html")  # this method is called of HTTP method is GET, e.g., when browsing the link
+    return render_template("user_form.html")  # this method is called of HTTP method is GET, e.g., when browsing the link
 
 if __name__ == '__main__':
     app.run(port=int(os.environ.get("PORT", 5000)), host='0.0.0.0', debug=True)
